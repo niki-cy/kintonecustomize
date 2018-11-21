@@ -1,5 +1,5 @@
 (function() {
-    "use strict";
+    'use strict';
  
     var TABLEFIELD = 'Table'; // Field code of the table
     var NUMBERFIELD = 'Number'; // Field code of number field in the table
