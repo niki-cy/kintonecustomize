@@ -1,0 +1,30 @@
+(function () {
+    "use strict";
+    
+    // Field code of Datetime field to hold the timestamp when Process Management status is changed
+    var TIMESTAMP_FIELD = 'Timestamp'; 
+    var STATUS_NAME = 'Completed';
+    
+    var events = [
+        'app.record.detail.process.proceed',
+        'mobile.app.record.detail.process.proceed'
+    ];
+    
+    // When process management is changed do the following
+    kintone.events.on(events, function(event) {
+        // Get current datetime
+        var currenttime = new Date();
+        
+        // Change date object to ISO string
+        var timestamp = currenttime.toISOString();
+        var record = event.record;
+        var status = event.nextStatus.value;
+    
+        // Insert current datetime into timestamp datetime field if status is 'Completed'
+        if (status === STATUS_NAME) {
+            record[TIMESTAMP_FIELD]['value'] = timestamp;
+        };
+        
+        return event;
+    })
+})();
