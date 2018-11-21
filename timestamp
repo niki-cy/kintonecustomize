@@ -1,5 +1,5 @@
 (function () {
-    "use strict";
+    'use strict';
     
     var TIMESTAMP_FIELD = 'Timestamp'; // Field code of Datetime field
     var STATUS_NAME = 'Completed'; // Name of status
